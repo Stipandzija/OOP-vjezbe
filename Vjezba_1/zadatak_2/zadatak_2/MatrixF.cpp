@@ -32,7 +32,7 @@ Matrica Matrica::input(int redak, int stupac)
 }
 Matrica Matrica::generate(int redak, int stupac, int a, int b)
 {
-	srand(time_t(NULL));
+	srand(time(NULL));
 	Matrica matrica;
 	matrica.redak = redak;
 	matrica.stupac = stupac;
