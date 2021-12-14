@@ -15,7 +15,7 @@ class Board
 			void draw_up_line(const struct Point&, char chh);
 			void draw_line(const struct Point&, const struct Point&, char chh);
 
-			Board();
+			Board() { this->row = 10; this->coll = 20; }
 			Board(Board& b);
 			Board(Board&& b);
 			~Board();

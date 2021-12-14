@@ -3,7 +3,7 @@
 
 using namespace std;
 
-/*U zadataku su x i y obrnuti nego u primjeru sa moodla npr. (16,8) - > (8,16)*/
+/*U zadataku su x i y zamjenjeni npr. (16,8) - > (8,16)*/
 
 int main()
 {

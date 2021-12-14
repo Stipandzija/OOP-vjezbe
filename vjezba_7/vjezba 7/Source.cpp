@@ -5,11 +5,6 @@
 using namespace std;
 
 
-Board::Board()
-{
-	row = 10;
-	coll = 20;
-}
 Board::Board(Board& b)
 {
 	row = b.row; coll = b.coll;
@@ -38,8 +33,8 @@ Board::Board(Board&& b) : row(b.row), coll(b.coll), board(b.board)
 }
 Board::~Board()
 {
-	for (int r = 0; r < row; r++)
-		delete[] board[r];
+	for (int i = 0; i < row; i++)
+		delete[] board[i];
 	delete[] board;
 }
 
