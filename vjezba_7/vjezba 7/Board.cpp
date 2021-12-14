@@ -21,15 +21,8 @@ int main()
 	cout << "Unesite znak za linije u Board: ";
 	char chh;
 	cin >> chh;
-	b.draw_char(p1,chh);
-	b.print();
-	cout << endl;
-	/*b.draw_up_line(p2, chh);
-	b.print();*/
 	cout << endl;
 	b.draw_line(p1, p2, chh);
-	b.print();
-	cout << endl;
 	b.draw_line(p3, p4, chh);
 	b.print();
 }

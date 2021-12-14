@@ -137,7 +137,6 @@ Point Point::point(Board& b, int q)
 			{
 				if (x >= x_np and x <= b.row and y >= y_np and y <= b.coll) { p.x = x; p.y = y; return p; }
 					
-				else if (x >= b.row and x <= x_np and y >= b.coll and y <= y_np) { p.x = x; p.y = y; return p; }
 			}
 		}
 	}
