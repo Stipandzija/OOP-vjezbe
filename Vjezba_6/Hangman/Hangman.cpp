@@ -1,16 +1,18 @@
 #include <iostream>
-#include "viewer.h"
+#include "model.h"
 
 using namespace std;
 
 int main()
 {
-	Hangman::Viewer hangman;
-	while (!hangman.check_game_over()) {
-		hangman.display_used_letters();
-		hangman.update_lives();
-		hangman.display_hangman();
-		hangman.display_current_progress();
+	Viewer hangman;
+	Model model;
+	Controller con;
+	while (!con.check_game_over(model)) {
+		hangman.display_used_letters(model);
+		con.update_lives(model);
+		hangman.display_hangman(model);
+		hangman.display_current_progress(model);
 	}
 	cout << "Game over\n";
 }
