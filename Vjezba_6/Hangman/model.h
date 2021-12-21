@@ -15,16 +15,15 @@ public:
 
 
 class Controller {
+public:
 	char user_entry();
 	bool check_letter(Model& m, char c);
-public:
 	void update_lives(Model& m);
 	bool check_game_over(Model& m);
 
 };
 
 class Viewer {
-	Model m;
 public:
 	void display_current_progress(Model& m);
 	void display_used_letters(Model& m);
