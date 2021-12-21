@@ -38,3 +38,7 @@ void timer::add(const double m)
 	if (m >= 60)
 		this->h += 1;
 }
+timer::timer(const timer& t) { h = t.h, m = t.m, s = t.s; }
+timer::timer(timer&& other) : h(move(other.h)), m(move(other.m)), s(move(other.s)) {}
+
+
