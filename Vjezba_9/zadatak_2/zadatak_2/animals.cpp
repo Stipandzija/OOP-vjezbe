@@ -3,20 +3,18 @@
 #include "Counter.hpp"
 #include "cat.hpp"
 #include "tarantula.hpp"
-#include <vector>
 
 using namespace std;
 
 int main()
 {
-	animals::counter c;
+	animals::counter br;
 	animals::dog d;
-	animals::cat ca;
+	animals::cat c;
 	animals::tarantula t;
-	animals::animal *a;
 	
-	c.add_legs(&d);
-	c.add_legs(&ca);
-	c.add_legs(&t);
-	cout << "ukupno nogu: " << c.get_legs() << endl;
+	br.add_legs(&d);
+	br.add_legs(&c);
+	br.add_legs(&t);
+	cout << "ukupno nogu: " << br.get_legs() << endl;
 }
