@@ -1,6 +1,4 @@
-#ifndef DECK_HPP_
-#define DECK_HPP_
-
+#pragma once
 #include "Card.hpp"
 #include <vector>
 #include <string>
@@ -8,13 +6,13 @@
 
 using namespace std;
 
-class deck {
+	class deck {
 
-	vector<string> suits;
-	vector<string> ranks;
-	vector<card> cards;
-	int counter;
-	//deck& operator = (const deck& rhs);
+		vector<string> suits;
+		vector<string> ranks;
+		vector<card> cards;
+		int counter;
+		//deck& operator = (const deck& rhs);
 	public:
 		deck();
 
@@ -23,9 +21,8 @@ class deck {
 		void shuffle();
 		void find_ace(); // mjenja vrijednost iz 10 u 11
 		void create_deck() { set_cards_ranks(); set_cards_numb(); find_ace(); shuffle(); }
-		
+
 		void remove_cards();
 		card give_to();
 		virtual ~deck();
-};
-#endif
+	};

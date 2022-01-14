@@ -7,24 +7,24 @@
 
 using namespace std;
 
-class game {
-	int min_stake;
-	int stakee;
-	deck deck;
-public:
+	class game {
+		int min_stake;
+		int stakee;
+		deck deck;
+	public:
 
-	game() { min_stake = 20; };
-	bool play();
-	string player_name();
-	int set_balance();
-	void game_start() { cout << " << dobrodosli u blackjack >>"; }
-	void game_over() { cout << " << hvala na igranju >>"; }
-	void start_game(player& ,dealer&);
-	void dijeljenje(player&,dealer&);
+		game() { min_stake = 20; };
+		bool play();
+		string player_name();
+		int set_balance();
+		void game_start() { cout << " << dobrodosli u blackjack >>"; }
+		void game_over() { cout << " << hvala na igranju >>"; }
+		void start_game(player&, dealer&);
+		void dijeljenje(player&, dealer&);
 
-	void winner(player&,dealer&);
-	void higher_score(player&, dealer&);
-	void time(int);
-	void timer(int);
-	virtual ~game();
-};
+		void winner(player&, dealer&);
+		void higher_score(player&, dealer&);
+		void time(int);
+		void timer(int);
+		virtual ~game();
+	};

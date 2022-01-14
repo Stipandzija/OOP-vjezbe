@@ -1,6 +1,4 @@
-#ifndef PLAYER_HPP_
-#define PLAYER_HPP_
-
+#pragma once
 #include "Deck.hpp"
 #include "hand.hpp"
 #include "Card.hpp"
@@ -44,5 +42,4 @@ class player {
 		virtual ~player();
 };
 
-#endif
 

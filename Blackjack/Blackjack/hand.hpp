@@ -1,17 +1,16 @@
-#ifndef HAND_HPP_
-#define HAND_HPP_
+#pragma once
 #include "Card.hpp"
 #include <iostream>
 #include <vector>
 #include "print_cards.hpp"
 using namespace std;
 
-class hand {
+	class hand {
 
-	vector<card> h;
-	int score_of_hand;
-	int score;
-	void print_sym(print& p);
+		vector<card> h;
+		int score_of_hand;
+		int score;
+		void print_sym(print& p);
 	public:
 		hand();
 		void set_card_in_hand(card c) { score = 0; h.push_back(c); }
@@ -29,5 +28,5 @@ class hand {
 		void print_hand();
 		void clear_hand() { h.clear(); }
 		virtual ~hand();
-};
-#endif
+	};
+

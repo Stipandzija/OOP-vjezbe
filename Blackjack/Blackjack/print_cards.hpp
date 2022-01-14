@@ -4,13 +4,13 @@
 
 using namespace std;
 
-class print {
-	
-	vector<string> heart;
-	vector<string> club;
-	vector<string> spade;
-	vector<string> diamond;
-	vector<string> hidden_card;
+	class print {
+
+		vector<string> heart;
+		vector<string> club;
+		vector<string> spade;
+		vector<string> diamond;
+		vector<string> hidden_card;
 
 	public:
 		print();
@@ -22,4 +22,4 @@ class print {
 
 		string print_card(string, int);
 		virtual ~print();
-};
+	};

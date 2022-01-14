@@ -1,22 +1,20 @@
-#ifndef CARD_HPP_
-#define CARD_HPP_
-
+#pragma once
 #include <string>
 #include <iostream>
 using namespace std;
 
-class card
-{
+	class card
+	{
 
-	int value;
-	string suit;
-	string rank;
-	bool turned = false;
+		int value;
+		string suit;
+		string rank;
+		bool turned = false;
 
 
 	public:
-		card(string,string,int);
-		card(string s, int n, int x) { this->suit=s; set_numbers(n); this->value=x; };
+		card(string, string, int);
+		card(string s, int n, int x) { this->suit = s; set_numbers(n); this->value = x; };
 		void set_suit(string);
 		void set_rank(string);
 		void set_value(int);
@@ -29,5 +27,4 @@ class card
 		bool check_is_turned() { return turned; }
 		void set_turned(bool n) { this->turned = n; }
 		virtual ~card();
-};
-#endif
+	};
