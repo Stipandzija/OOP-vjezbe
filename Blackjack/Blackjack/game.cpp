@@ -1,5 +1,5 @@
 #include "game.hpp"
-#include "Deck.hpp"
+#include "deck.hpp"
 #include <iostream>
 #include <cctype>
 #include <Windows.h>

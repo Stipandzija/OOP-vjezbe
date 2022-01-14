@@ -141,7 +141,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="print_cards.hpp" />
-    <ClInclude Include="Card.hpp" />
+    <ClInclude Include="card.hpp" />
     <ClInclude Include="dealer.hpp" />
     <ClInclude Include="game.hpp" />
     <ClInclude Include="hand.hpp" />
@@ -151,7 +151,7 @@
     <ClCompile Include="card.cpp" />
     <ClCompile Include="dealer.cpp" />
     <ClCompile Include="deck.cpp" />
-    <ClCompile Include="Deck.hpp" />
+    <ClCompile Include="deck.hpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="hand.cpp" />
     <ClCompile Include="main.cpp" />

@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Card.hpp">
+    <ClInclude Include="card.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="hand.hpp">
@@ -38,7 +38,7 @@
     <ClCompile Include="card.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Deck.hpp">
+    <ClCompile Include="deck.hpp">
       <Filter>Header Files</Filter>
     </ClCompile>
     <ClCompile Include="deck.cpp">

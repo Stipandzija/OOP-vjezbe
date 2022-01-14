@@ -1,7 +1,7 @@
 #pragma once
 #include "player.hpp"
 #include "dealer.hpp"
-#include "Deck.hpp"
+#include "deck.hpp"
 #include <vector>
 #include <string>
 

@@ -1,6 +1,6 @@
 #pragma once
 #include "hand.hpp"
-#include "Deck.hpp"
+#include "deck.hpp"
 #include "player.hpp"
 #include <vector>
 #include <string>

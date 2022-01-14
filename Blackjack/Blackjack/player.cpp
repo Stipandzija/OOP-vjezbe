@@ -17,7 +17,7 @@ using namespace std;
 	}
 	int player::put_stake(int min_stake) {
 		this->stake = 0;
-		cout << "Unesi kredit: ";
+		cout << "Unesi kredit za pocetak kruga: ";
 		cin >> stake;
 		bool b = false;
 		while (stake <= min_stake) {

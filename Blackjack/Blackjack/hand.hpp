@@ -1,5 +1,5 @@
 #pragma once
-#include "Card.hpp"
+#include "card.hpp"
 #include <iostream>
 #include <vector>
 #include "print_cards.hpp"

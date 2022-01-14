@@ -1,7 +1,7 @@
 #pragma once
-#include "Deck.hpp"
+#include "deck.hpp"
 #include "hand.hpp"
-#include "Card.hpp"
+#include "card.hpp"
 
 using namespace std;
 

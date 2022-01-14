@@ -1,8 +1,8 @@
-#include "Deck.hpp"
+#include "deck.hpp"
 #include <iostream>
 #include <vector>
 #include <algorithm> 
-#include "Card.hpp"
+#include "card.hpp"
 #include <time.h>
 
 using namespace std;
