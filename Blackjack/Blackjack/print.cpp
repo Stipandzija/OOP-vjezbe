@@ -7,14 +7,14 @@ using namespace std;
 
 
 	print::print() {
-		club.push_back(" ___________ ");
-		club.push_back("/           \\");
-		club.push_back("|     _     |");
-		club.push_back("|    (_)    |");
-		club.push_back("|   (_)_)   |");
-		club.push_back("|    /_\\    |");
-		club.push_back("|           |");
-		club.push_back("\\__________/");
+		hidden_card.push_back(" ___________ ");
+		hidden_card.push_back("/           \\");
+		hidden_card.push_back("|            |");
+		hidden_card.push_back("|    .??.    |");
+		hidden_card.push_back("|   HIDDEN   |");
+		hidden_card.push_back("|    .??.    |");
+		hidden_card.push_back("|            |");
+		hidden_card.push_back("\\___________/");
 
 		heart.push_back(" ___________");
 		heart.push_back("/           \\");
@@ -34,6 +34,18 @@ using namespace std;
 		spade.push_back("|           |");
 		spade.push_back(" \\_________/");
 
+
+		club.push_back(" ___________ ");
+		club.push_back("/           \\");
+		club.push_back("|     _     |");
+		club.push_back("|    (_)    |");
+		club.push_back("|   (_)_)   |");
+		club.push_back("|    /_\\    |");
+		club.push_back("|           |");
+		club.push_back("\\__________/");
+
+
+
 		diamond.push_back(" ____________ ");
 		diamond.push_back("/            \\");
 		diamond.push_back("|            |");
@@ -43,14 +55,7 @@ using namespace std;
 		diamond.push_back("|            |");
 		diamond.push_back("\\___________/");
 
-		hidden_card.push_back(" ___________ ");
-		hidden_card.push_back("/           \\");
-		hidden_card.push_back("|            |");
-		hidden_card.push_back("|    .??.    |");
-		hidden_card.push_back("|   HIDDEN   |");
-		hidden_card.push_back("|    .??.    |");
-		hidden_card.push_back("|            |");
-		hidden_card.push_back("\\___________/");
+	
 	}
 	print::~print() {
 
