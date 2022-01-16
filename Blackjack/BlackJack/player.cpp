@@ -68,61 +68,53 @@ int player::put_stake(int min_stake) {
 }
 void player::set_ace_to_one(card c, int index) {
 	for (int i = index; i < h.get_size(); i++) {
-
-		if ((h.get_card_rank(i) == "A") && ((h.get_score_of_hand() + h.get_card_value(i)) > 21)) {
-			h.set_card_value(i, 1);
-			break;
-
-		}
-		else if ((h.get_card_rank(i) == "A") && ((h.get_score_of_hand() + h.get_card_value(i)) < 21)) {
-
-			cout << "Unesite zeljenu vrijednost za asa 1 / 11" << endl;
-			cout << ": ";
-			int y; cin >> y; h.set_card_value(i, y);
-			cout << endl;
-			break;
-		}
+			if (h.get_card_value(i) != 0)
+				break;
+			else if ((h.get_card_rank(i) == "A") && ((h.get_score_of_hand() + 11) > 21)) {
+				h.set_card_value(i, 1);
+				break;
+			}else ;
 	}
 }
 void player::player_hit(card c) {
 
-	h.set_card_in_hand(c);
-	print_current_hand();
+	
 	if (get_score() < 21) {
+		h.set_card_in_hand(c);
+		print_current_hand();
 		for (int i = 0; i < h.get_size(); i++) {
-
-			if ((h.get_card_rank(i) == "A") && (h.get_size() == 1)) {
-
-				cout << "Unesite zeljenu vrijednost za asa 1 / 11" << endl;
-				cout << ": ";
-				int x; cin >> x; h.set_card_value(i, x);
-				cout << endl;
-				break;
-			}
-			else {
-				set_ace_to_one(c, i);
-			}
+				if (h.get_card_value(i) != 0)
+					break;
+				else if ((h.get_card_rank(i) == "A") && h.get_score_of_hand() < 21) {
+					cout << "Unesite zeljenu vrijednost za asa 1 / 11" << endl;
+					cout << ": ";
+					int x; cin >> x; h.set_card_value(i, x);
+					cout << endl;
+				}
+				else {
+					set_ace_to_one(c, i);
+				}
 		}
 	}
 }
 void player::dealer_hit(card c) {
 
-	h.set_card_in_hand(c);
+	
 	if (get_score() <= 17) {
-
-		for (int i = 0; i < h.get_size(); i++) {
+		h.set_card_in_hand(c);
 			for (int i = 0; i < h.get_size(); i++)
 			{
-				if (h.get_card_rank(i) == "A" && h.get_size() == 1) {
-					h.set_card_value(i, 11);
-				}
-				else if ((h.get_card_rank(i) == "A") && (h.get_score_of_hand() > 11) && (h.get_size() > 1)) {
+		
+				if ((h.get_card_rank(i) == "A") && (h.get_score_of_hand() > 11)) {
 
 					h.set_card_value(i, 1);
 				}
-				else;
+				else if ((h.get_card_rank(i) == "A") && (h.get_score_of_hand() < 11)) {
+					h.set_card_value(i, 11);
+				}
+				else ;
+				
 			}
-		}
 	}
 }
 void player::player_round(deck& d) {

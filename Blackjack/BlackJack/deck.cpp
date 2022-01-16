@@ -55,7 +55,7 @@ void deck::find_ace() {
 
 	for (auto& el : cards) {
 		if (el.get_rank() == "A")
-			el.set_value(11);
+			el.set_value(0);
 	}
 
 }
