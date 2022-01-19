@@ -23,7 +23,7 @@ public:
 	int set_balance();
 
 	void game_over() {
-		cout << "         << hvala na igranju >>         " << endl;
+		cout << "         << thanks for playing >>         " << endl;
 	}
 	bool play_until();
 
