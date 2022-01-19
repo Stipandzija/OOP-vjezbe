@@ -28,7 +28,7 @@ void deck::remove_cards() {
 	cards.clear();
 }
 void deck::shuffle() {
-	srand(time(NULL));
+	srand(unsigned(time(NULL)));
 	random_shuffle(cards.begin(), cards.end());
 	random_shuffle(cards.begin(), cards.end());
 	random_shuffle(cards.begin(), cards.end());
@@ -36,15 +36,15 @@ void deck::shuffle() {
 	random_shuffle(cards.begin(), cards.end());
 }
 void deck::set_cards_ranks() {
-	for (int i = 0; i < suits.size(); i++) {
-		for (int j = 0; j < ranks.size(); j++) {
+	for (int i = 0; i < (int)suits.size(); i++) {
+		for (int j = 0; j < (int)ranks.size(); j++) {
 			card c(suits[i], ranks[j], 10);
 			cards.push_back(c);
 		}
 	}
 }
 void deck::set_cards_numb() {
-	for (int i = 0; i < suits.size(); i++) {
+	for (int i = 0; i < (int)suits.size(); i++) {
 		for (int j = 2; j <= 10; j++) {
 			card c(suits[i], j, j);
 			cards.push_back(c);
@@ -62,7 +62,7 @@ void deck::find_ace() {
 
 card deck::give_to() {
 
-	if (counter > cards.size())
+	if (counter > (int)cards.size())
 		counter = 0;
 	return cards[counter++];
 

@@ -24,25 +24,26 @@ int player::put_stake(int min_stake) {
 
 	if (stake > get_balance())
 	{
-		cout << "Greska unjeli ste: " << stake << " iznos racuna: " << get_balance() << endl;
-		put_stake(min_stake);
+		cout << "You entered an input error " << stake << " current balance: " << get_balance() << endl;
+		return put_stake(min_stake);
 	}
 	while (stake < min_stake) {
 		stake = 0;
-		cout << "Nedovoljno kredita za igru" << endl;
-		cout << "Zelis li ponovo uloziti y / n: ";
+		cout << "Not enough credit for the game" << endl;
+		cout << "Set credit: ";
 
 		string x; getline(cin, x);
 		cout << endl;
 		if (x.length() == 0)
 		{
-			cout << "Greska niste unos: " << endl;
+			cout << "Input error: " << endl;
+			return put_stake(min_stake);
 		}
-		if (x == "y")
+		if (x == "yes")
 		{
 			return put_stake(min_stake);
 		}
-		else if (x == "n") {
+		else if (x == "no") {
 			b = true;
 			break;
 		}
@@ -59,8 +60,7 @@ int player::put_stake(int min_stake) {
 
 		cout << endl;
 		balance -= stake;
-		cout << "Na racunu imate: " << get_balance() << endl;
-		timer(3);
+		timer(2);
 		system("cls");
 
 		return stake;
@@ -68,9 +68,9 @@ int player::put_stake(int min_stake) {
 }
 void player::set_ace_to_one(card c, int index) {
 	for (int i = index; i < h.get_size(); i++) {
-			if (h.get_card_value(i) != 0)
-				break;
-			else if ((h.get_card_rank(i) == "A") && ((h.get_score_of_hand() + 11) > 21)) {
+			if ((h.get_card_rank(i) == "A") && ((h.get_score_of_hand() + 11) > 21)) {
+				if (h.get_card_value(i) != 0)
+					break;
 				h.set_card_value(i, 1);
 				break;
 			}else ;
@@ -83,10 +83,10 @@ void player::player_hit(card c) {
 		h.set_card_in_hand(c);
 		print_current_hand();
 		for (int i = 0; i < h.get_size(); i++) {
-				if (h.get_card_value(i) != 0)
-					break;
-				else if ((h.get_card_rank(i) == "A") && h.get_score_of_hand() < 21) {
-					cout << "Unesite zeljenu vrijednost za asa 1 / 11" << endl;
+				if ((h.get_card_rank(i) == "A") && h.get_score_of_hand() < 21) {
+					if (h.get_card_value(i) != 0)
+							break;
+					cout << "Enter the desired value for aces 1/11" << endl;
 					cout << ": ";
 					int x; cin >> x; h.set_card_value(i, x);
 					cout << endl;
@@ -100,12 +100,12 @@ void player::player_hit(card c) {
 void player::dealer_hit(card c) {
 
 	
-	if (get_score() <= 17) {
+	if (get_score() <17) {
 		h.set_card_in_hand(c);
 			for (int i = 0; i < h.get_size(); i++)
 			{
 		
-				if ((h.get_card_rank(i) == "A") && (h.get_score_of_hand() > 11)) {
+				if ((h.get_card_rank(i) == "A") && (h.get_score_of_hand() > 21)) {
 
 					h.set_card_value(i, 1);
 				}
@@ -132,24 +132,26 @@ void player::player_round(deck& d) {
 			break;
 		}
 		else {
-			cout << "******************************************************************************" << endl;
+			string x;
+			bool f = false;
+			while (!f) {
+				x.clear();
+				cout << "Do you want to HIT or STAND    " << endl;
+				cout << "HIT - press: yes   " << endl;
+				cout << "STAND - press: no    " << endl;
+				cout << ": ";
+				cin >> x;
 
-		here: //// ovjde se vraca
+				if ((x.size() > 1) && (x != "yes") && (x != "no")) {
 
-			cout << "Zelis li UDARITI ili STATI     " << endl;
-			cout << "Za UDARITI stisni: y   " << endl;
-			cout << "Za STATI stisni: n    " << endl;
-			cout << ": ";
-			string x; cin >> x;
-
-			if ((x.size() > 1) && (x != "y") && (x != "n")) {
-
-				cout << "Pogreska u unosenju" << endl;
-				cout << "Pokusajte opet" << endl;
-				goto here;
-
+					cout << "Input error" << endl;
+					cout << "Try again "<< endl;
+					f = false;
+				}
+				else
+					f = true;
 			}
-			else if (x == "y") {
+			if (x == "yes") {
 
 				if (get_score() == 21) {
 
@@ -158,7 +160,6 @@ void player::player_round(deck& d) {
 
 				}
 				else if (get_score() < 21) {
-
 					player_hit(d.give_to());
 					cout << get_player_name() << " - score: " << get_score() << endl;
 					turn = true;
@@ -170,7 +171,7 @@ void player::player_round(deck& d) {
 				}
 
 			}
-			else if (x == "n") {
+			else if (x == "no") {
 
 				turn = false;
 			}

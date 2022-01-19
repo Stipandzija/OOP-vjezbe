@@ -14,7 +14,6 @@ class deck {
 	vector<string> ranks;
 	vector<card> cards;
 	int counter;
-	//deck& operator = (const deck& rhs);
 public:
 	deck();
 

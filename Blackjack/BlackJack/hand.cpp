@@ -11,7 +11,7 @@ using namespace std;
 hand::hand() {}
 int hand::get_score_of_hand() {
     score_of_hand = 0;
-    for (int i = 0; i < h.size(); i++)
+    for (int i = 0; i < (int)h.size(); i++)
     {
         if (!h[i].check_is_turned())
         {
@@ -40,7 +40,7 @@ void hand::print_top_bot(print& p)
 {
     for (int i = 0; i < p.get_sizee(); ++i)
     {
-        for (int y = 0; y < h.size(); ++y)
+        for (int y = 0; y < (int)h.size(); ++y)
         {
             cout << p.get_header(i) << "   ";
         }
@@ -52,7 +52,7 @@ void hand::print_sym(print& p) {
 
     for (int i = 0; i < 5; ++i)
     {
-        for (int j = 0; j < h.size(); ++j)
+        for (int j = 0; j < (int)h.size(); ++j)
         {
             if (h[j].check_is_turned())  // Check to if card is hidden
             {
@@ -68,7 +68,7 @@ void hand::print_sym(print& p) {
 }
 void hand::print_bot_rank(print& p)
 {
-    for (int i = 0; i < h.size(); ++i)
+    for (int i = 0; i < (int)h.size(); ++i)
     {
         if (h[i].check_is_turned())
         {
@@ -83,7 +83,7 @@ void hand::print_bot_rank(print& p)
 }
 void hand::print_top_rank(print& p) {
     {
-        for (int i = 0; i < h.size(); ++i)
+        for (int i = 0; i < (int)h.size(); ++i)
         {
             if (h[i].check_is_turned())
             {

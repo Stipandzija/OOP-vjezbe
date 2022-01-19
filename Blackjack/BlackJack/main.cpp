@@ -10,26 +10,31 @@ using namespace std;
 int main() {
 	game g;
 	cout << endl;
-here:
+	bool b = false;
 	while (1) {
+		while (1) {
 
-		if (g.play() == false) {
-			cout << endl;
-			game_header();
-			cout << endl;
-			cout << endl;
-			system("cls");
-			break;
+			if (g.play() == false) {
+				cout << endl;
+				game_header();
+				cout << endl;
+				cout << endl;
+				system("cls");
+				break;
+			}
 		}
-	}
-	time(3);
-	cout << "Za ponovo pokretanje stisni ENTER, za izlazak SPACE+ENTER"; 
-	string s;
-	getline(cin, s);
-	if (cin.get() == '\n')
-	{
-		system("cls");
-		goto here;
+		time(3);
+		cout << "Za ponovo pokretanje stisni ENTER, za izlazak SPACE+ENTER";
+		string s;
+		getline(cin, s);
+		if (cin.get() == '\n')
+		{
+			system("cls");
+			b = true;
+
+		}
+		else
+			b = false;
 	}
 	g.game_over();
 }

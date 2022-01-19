@@ -25,9 +25,9 @@ bool game::play() {
 		system("cls");
 		game_header();
 		if (p.get_balance() < min_stake) {
-			cout << "Nedovoljan balans " << endl;
+			cout << "insufficient balance " << endl;
 			p.set_balance(set_balance());
-			timer(3);
+			timer(1);
 			system("cls");
 		}
 		else if ((stakee = p.put_stake(min_stake)) > 0) {
@@ -40,13 +40,13 @@ bool game::play() {
 
 bool game::play_until() {
 	string s;
-	cout << "Zelis li nastaviti yes / no" << endl;
+	cout << "Do you want to continue yes / no" << endl;
 	cin >> s;
 	if (s.length() == 0)
 		return play_until();
-	for (int i = 0; i < s.length(); i++) {
+	for (int i = 0; i < (int)s.length(); i++) {
 		if (!isalpha(s.at(i))) {
-			cout << "Greska u unosu unjeli ste: '" << s << "' ponovite unos" << endl;
+			cout << "You entered an input error '" << s << "' try again" << endl;
 			return play_until();
 		}
 	}
@@ -55,7 +55,7 @@ bool game::play_until() {
 	else if (s == "no")
 		return true;
 	else {
-		cout << "Pokreska u unosu unjeli ste: '" << s << "' ponovite unos" << endl;
+		cout << "You entered an input error '" << s << "' try again" << endl;
 		return play_until();
 	}
 }
@@ -63,13 +63,13 @@ string game::player_name() {
 
 
 	string s;
-	cout << "Unesite vase ime:  ";
+	cout << "Enter your name:  ";
 	cin >> s;
 	if (s.length() == 0)
 		return player_name();
-	for (int i = 0; i < s.length(); i++) {
+	for (int i = 0; i < (int)s.length(); i++) {
 		if (!isalpha(s.at(i))) {
-			cout << "Greska u unosu unjeli ste: '" << s << "' ponovite unos" << endl;
+			cout << "You entered an input error '" << s << "' try again" << endl;
 			return player_name();
 		}
 	}
@@ -77,20 +77,20 @@ string game::player_name() {
 }
 int game::set_balance() {
 
-	cout << "Unesite balans $: ";
+	cout << "Enter the balance $: ";
 	string s;
 	cin >> s;
 	if (s.length() == 0)
 		return set_balance();
-	for (int i = 0; i < s.length(); i++) {
+	for (int i = 0; i < (int)s.length(); i++) {
 		if (!isdigit(s.at(i)))
 		{
-			cout << "Greska u unosu unjeli ste: '" << s << "' ponovite unos " << endl;
+			cout << "You entered an input error '" << s << "' try again" << endl;
 			return set_balance();
 		}
 	}
 	if (s.length() > 13) {
-		cout << "Prevelik iznos, unesi ponovo " << endl;// na prevelikom unosu -858993460 = 0xCCCCCCCC pristupam neinicijaliziranoj memoriji
+		cout << "Too big amount, please re-enter" << endl; // na prevelikom unosu -858993460 = 0xCCCCCCCC pristupam neinicijaliziranoj memoriji
 		return set_balance();
 	}
 	int value;
@@ -109,7 +109,7 @@ void game::first_lap(player& p, dealer& d) {
 	cout << endl;
 	cout << "Dealer- score: " << d.get_score() << endl;
 	cout << "******************************************************************************" << endl;
-	timer(3);
+	timer(1);
 
 }
 void game::second_lap(player& p, dealer& d) {
@@ -135,13 +135,16 @@ void game::start_game(player& p, dealer& d) {
 	second_lap(p, d);
 	d.open_card();
 	p.player_round(deck);
+
+	while (d.get_score()<17) {
+		d.dealer_hit(deck.give_to());
+	}
 	winner(p, d);
 	timer(2);
 	p.clear_hand();
 	d.clear_hand();
-	cout << " Pricekajte 10s: " << endl;
+	cout << " Wait 5s " << endl;
 	cout << "******************************************************************************" << endl;
-	timer(5);
 	time(5);
 	system("cls");
 }
@@ -155,11 +158,11 @@ void game::winner(player& p, dealer& d) {
 		cout << "Score - " << p.get_score() << endl;
 		cout << " !!!! Blackjack !!!!" << endl;
 		int n = (stakee * 2);
-		cout << "Dobio si: " << n << " $ kredita " << endl;
+		cout << "You won: " << n << " $ credit " << endl;
 		cout << "" << endl;
-		timer(2);
+		timer(5);
 		p.win_game(n);
-		cout << "Trenutni balans: " << p.get_balance() << endl;
+		cout << "Current balance: " << p.get_balance() << endl;
 		cout << "******************************************************************************" << endl;
 
 	}
@@ -167,12 +170,12 @@ void game::winner(player& p, dealer& d) {
 		{
 			game_header();
 			p.print_current_hand();
-			cout << "Vas score - " << p.get_score() << endl;
+			cout << "Your score - " << p.get_score() << endl;
 			cout << endl;
-			cout << "Premasio si 21 " << endl;
-			cout << "Izgubio si: " << stakee << " $ kredita " << endl;
-			cout << "Trenutni balans: " << p.get_balance() << endl;
-			timer(2);
+			cout << "You surpassed 21 " << endl;
+			cout << "You lost: " << stakee << " $ credit " << endl;
+			cout << "Current balance: " << p.get_balance() << endl;
+			timer(5);
 			cout << endl;
 		}
 	}
@@ -183,42 +186,57 @@ void game::winner(player& p, dealer& d) {
 }
 void game::higher_score(player& p, dealer& d)
 {
-	if ((p.get_score() > d.get_score() || ((d.get_score()) > 21) && p.get_score() < 21))
+	if (p.get_score() == d.get_score()) {
+		d.print_current_hand();
+		cout << "Dealer - score: " << d.get_score() << endl;
+		cout << endl;
+		cout << endl;
+		p.print_current_hand();
+		cout << "Your score - " << p.get_score() << endl;
+		cout << "Equal result" << endl;
+		cout << "You won: " << stakee << " $ credit " << endl;
+		cout << "" << endl;
+		p.win_game(stakee);
+		cout << "******************************************************************************" << endl;
+		timer(5);
+	}
+
+	else if ((p.get_score() > d.get_score() || ((d.get_score()) > 21) && p.get_score() < 21))
 	{
 		system("cls");
 		game_header();
 		p.print_current_hand();
-		cout << "Vas score - " << p.get_score() << endl;
+		cout << "Your score - " << p.get_score() << endl;
 		d.print_current_hand();
 		cout << "Dealer - score: " << d.get_score() << endl;
 		cout << endl;
 		cout << "Ostvario si pobjedu " << endl;
 		int n = (stakee * 2);
-		cout << "Dobio si: " << n << " $ kredita " << endl;
+		cout << "You won: " << n << " $ credit " << endl;
 		cout << "" << endl;
 		p.win_game(n);
-		cout << "Trenutni balans: " << p.get_balance() << endl;
+		cout << "Current balance: " << p.get_balance() << endl;
 		cout << "******************************************************************************" << endl;
-		timer(2);
+		timer(5);
 	}
 	else
 	{
 		system("cls");
 		game_header();
 		p.print_current_hand();
-		cout << "Vas score - " << p.get_score() << endl;
+		cout << "Your score - " << p.get_score() << endl;
 		cout << endl;
 		d.print_current_hand();
 		cout << "Dealer - score: " << d.get_score() << endl;
 		cout << "" << endl;
-		cout << "Dealer je pobjedio " << endl;
+		cout << "Dealer won " << endl;
 		cout << "" << endl;
-		cout << "Izgubio si: " << stakee << " $ kredita " << endl;
+		cout << "You lost: " << stakee << " $ credit " << endl;
 		cout << "" << endl;
-		cout << "Trenutni balans: " << p.get_balance() << endl;
+		cout << "Current balance: " << p.get_balance() << endl;
 		cout << "" << endl;
 		cout << "******************************************************************************" << endl;
-		timer(2);
+		timer(5);
 	}
 }
 
