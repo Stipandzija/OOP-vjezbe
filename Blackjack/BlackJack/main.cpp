@@ -11,8 +11,8 @@ int main() {
 	game g;
 	cout << endl;
 	bool b = false;
-	while (1) {
-		while (1) {
+	 do{
+		do{
 
 			if (g.play() == false) {
 				cout << endl;
@@ -22,7 +22,7 @@ int main() {
 				system("cls");
 				break;
 			}
-		}
+		} while (1);
 		time(3);
 		cout << "Za ponovo pokretanje stisni ENTER, za izlazak SPACE+ENTER";
 		string s;
@@ -35,6 +35,7 @@ int main() {
 		}
 		else
 			b = false;
-	}
+	 } while (b==true);
+	 system("cls");
 	g.game_over();
 }
