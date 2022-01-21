@@ -21,8 +21,8 @@ public:
 
 template<typename X>
 stack<X>::stack() {
-	this->v = new X[10];
-	t = -1;
+	this->v = new X[11];
+	t = 0;
 }
 
 template<typename X>
@@ -32,14 +32,14 @@ stack<X>::~stack() {
 
 template<typename X>
 void stack<X>::push(X number) {
-	if (!(t == 10 - 1))
+	if (!(t == 11 - 1))
 		v[++t] = number;
 	else
 		cout << "Pun" << endl;
 }
 template<typename X>
 bool stack<X>::is_empty() {
-	if (t == -1)
+	if (t == 0)
 		return true;
 	return false;
 }

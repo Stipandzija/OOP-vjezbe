@@ -9,7 +9,7 @@ int main() {
 	stack<int> v;
 	stack<int> v_pun;
 
-	for (int i = 0; i < 8; i++) {
+	for (int i = 0; i < 10; i++) {
 		v.push(i);
 	}
 
