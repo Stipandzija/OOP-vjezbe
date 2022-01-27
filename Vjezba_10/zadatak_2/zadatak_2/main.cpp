@@ -9,10 +9,10 @@ int main() {
 	stack<int> v;
 	stack<int> v_pun;
 
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i <= 10; i++) {
 		v.push(i);
 	}
-
+	
 	cout << "Pop: " << v.pop() << endl;
 	cout <<"************************************* "<< endl;
 
