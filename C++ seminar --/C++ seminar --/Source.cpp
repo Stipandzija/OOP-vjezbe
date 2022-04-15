@@ -22,3 +22,27 @@ void Brisanje(vector<string>& R, vector<vector<string>>& F_min) {
 	R.erase(R.begin() + (x-1));
 	F_min.erase(F_min.begin() + (x-1));
 }
+vector<string> kanonski(vector<vector<string>>& F_min, int odabir) {
+	vector<string> v = F_min[odabir - 1];
+	vector<string> prazan;
+
+	
+	for (string s : v) {
+		bool x = true;
+		string q;
+		for (int i = 0; i < s.size(); i++) {
+			if (s[i]=='-' || (s[i] == '>')) {
+				if (s[i] == '>')
+					x = false;
+				continue;
+			}
+			else if (x==false)
+			{
+				q.push_back(s[i]);
+			}
+			
+		}
+
+	}
+
+}

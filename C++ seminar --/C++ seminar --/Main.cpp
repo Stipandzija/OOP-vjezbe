@@ -37,7 +37,10 @@ int main() {
 			Brisanje(R_shema, F_min);
 
 		}
-		if (odabir != R_shema.size()) { izvrsavanje = false; }
+		else if (odabir>0 && odabir <=10) {
+			vector<string> v=kanonski(F_min,odabir);
+		}
+		else if (odabir != R_shema.size()) { izvrsavanje = false; }
 
 
 
