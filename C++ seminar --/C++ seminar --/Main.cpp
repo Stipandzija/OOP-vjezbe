@@ -12,6 +12,14 @@ int main() {
 		{"A->BCE","C->EH","DFG->IJKL","L->AB", "B->DEL"},{"A->BCDE","BCD->EFG","CH->I","D->AI", "FA->GHAC"},{"A->BCDE","C->AEFGHIJK","K->LMNAOP", "EF->AOKC", "P->AB", "DE->PC"},
 		{"AEI->JAC","DE->IFGHA","FAG->A","EFI->DECAB","F->AIJFB"},{"BM->JKLADE","MD->FKLJ","G->BCDEF","FI->HIJK", "CE->BMDIF"},{"A->B","B->C","C->D","D->E","E->F", "F->G", "G->H", "H->I", "I->J", "J->ABCDEFGHI", "L->J"} };
 
-	
+	bool izvrsavanje = true;
+	while (izvrsavanje == true) //program se izvrsava dok je true
+	{
 
+
+
+
+
+		izvrsavanje = false;//izlazi iz petlje program gotov
+	}
 }
