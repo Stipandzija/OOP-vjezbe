@@ -17,6 +17,24 @@ int main() {
 	{
 
 
+		int R_size = R_shema.size();
+		int odabir; cout << "Unesi broj koi zelis odabrat: "; cin >> odabir;
+		if (odabir == 13) {
+			izvrsavanje = false;
+
+			cout << "Kraj programa" << endl;
+			continue;
+		}
+		else if (odabir > 13) {
+			izvrsavanje = false;
+			cout << "Greska u unosu" << endl;
+			continue;
+		}
+		else if (odabir == 12) {
+			Unos_Rsheme(R_shema,F_min);
+		}
+		if (odabir != R_shema.size()) { izvrsavanje = false; }
+
 
 
 
