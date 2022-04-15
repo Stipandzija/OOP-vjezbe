@@ -17,6 +17,8 @@ void Unos_Rsheme(vector<string>& R, vector<vector<string>>& F_min) {
 	F_min.push_back(v);
 }
 void Brisanje(vector<string>& R, vector<vector<string>>& F_min) {
-
-
+	cout << "KOji broj zelis obrisat";
+	int x; cin >> x;
+	R.erase(R.begin() + (x-1));
+	F_min.erase(F_min.begin() + (x-1));
 }
