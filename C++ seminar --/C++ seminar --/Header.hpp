@@ -4,3 +4,4 @@
 using namespace std;
 
 void Unos_Rsheme(vector<string>&, vector<vector<string>>&);
+void Brisanje(vector<string>&, vector<vector<string>>&);

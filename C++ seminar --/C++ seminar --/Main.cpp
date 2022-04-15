@@ -33,6 +33,9 @@ int main() {
 		else if (odabir == 12) {
 			Unos_Rsheme(R_shema,F_min);
 		}
+		else if (odabir == 12) {
+			Brisanje(R_shema, F_min);
+		}
 		if (odabir != R_shema.size()) { izvrsavanje = false; }
 
 

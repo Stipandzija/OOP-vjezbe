@@ -1,4 +1,5 @@
 #include "Header.hpp"
+#include <algorithm>
 #include <iostream>
 using namespace std;
 void Unos_Rsheme(vector<string>& R, vector<vector<string>>& F_min) {
@@ -14,4 +15,8 @@ void Unos_Rsheme(vector<string>& R, vector<vector<string>>& F_min) {
 		v.push_back(s2);
 	}
 	F_min.push_back(v);
+}
+void Brisanje(vector<string>& R, vector<vector<string>>& F_min) {
+
+
 }
