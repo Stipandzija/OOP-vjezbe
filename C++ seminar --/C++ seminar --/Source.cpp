@@ -29,20 +29,32 @@ vector<string> kanonski(vector<vector<string>>& F_min, int odabir) {
 	
 	for (string s : v) {
 		bool x = true;
-		string q;
+		bool y = true;
 		for (int i = 0; i < s.size(); i++) {
+			string lijeva_strana;
+			string desni_char;
+			string zasebni_kanonski;
 			if (s[i]=='-' || (s[i] == '>')) {
-				if (s[i] == '>')
+				if (s[i] == '-')
+					y = false;
+				else if (s[i] == '>')
 					x = false;
 				continue;
 			}
+			else if (y == true) {
+				lijeva_strana.push_back(s[i]);
+			}
 			else if (x==false)
 			{
-				q.push_back(s[i]);
+				desni_char.push_back(s[i]);
 			}
-			
+			zasebni_kanonski.append(lijeva_strana + "->" + desni_char);
+			prazan.push_back(zasebni_kanonski);
 		}
-
 	}
-
+	cout << "F_min: ";
+	for (auto i = 0; i < v.size(); i++) {
+		cout << v[i] << " ";
+	}
+	return prazan;
 }
