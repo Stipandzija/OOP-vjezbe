@@ -60,6 +60,11 @@ vector<string> kanonski(vector<vector<string>>& F_min, int odabir) {
 		
 	}
 	cout << "F_min: ";
+	for (auto i = 0; i < v.size(); i++) {
+		cout << v[i] << " ";
+	}
+	cout << endl;
+	cout << "F_min u kanonskom obliku: ";
 	for (auto i = 0; i < prazan.size(); i++) {
 		cout << prazan[i] << " ";
 	}
