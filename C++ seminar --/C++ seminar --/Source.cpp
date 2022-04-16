@@ -71,7 +71,7 @@ vector<string> kanonski(vector<vector<string>>& F_min, int odabir) {
 	cout << endl;
 	return prazan;
 }
-string vracanje(vector<string>& v) {
+string vracanje(vector<string> v) {
 
 	string R;
 	for (string s : v) {
@@ -80,13 +80,33 @@ string vracanje(vector<string>& v) {
 				continue;
 			}
 			else {
-				size_t found = R.find(s[i]);
-				if (found == std::string::npos)
+				size_t pos = R.find(s[i]);
+				if (pos == std::string::npos)
 					R.push_back(s[i]);
 			}
 		}
 	}
 
 	cout <<"R od F je: " << R;
+	cout << endl;
 	return R;
+}
+vector<string> kljucevi_valjda(vector<string> v) {
+	vector<string> vracam;
+	for (string e : v) {
+		string s;
+		size_t pos = e.find('-');
+		if (pos != std::string::npos)
+		{
+			vracam.push_back(e.substr(0, pos));
+		}
+	}
+	sort(vracam.begin(), vracam.end());
+	vracam.erase(unique(vracam.begin(), vracam.end()), vracam.end());
+	cout << "Lijeva strana: ";
+	for (auto i = 0; i < vracam.size(); i++) {
+		cout << vracam[i] << " ";
+	}
+	cout << endl;
+	return vracam;
 }

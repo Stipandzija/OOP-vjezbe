@@ -40,6 +40,7 @@ int main() {
 		else if (odabir>0 && odabir <=10) {
 			vector<string> v=kanonski(F_min,odabir);
 			string v2=vracanje(v);
+			vector<string> v3 = kljucevi_valjda(v);
 
 		}
 		else if (odabir != R_shema.size()) { izvrsavanje = false; }
