@@ -37,17 +37,13 @@ int main() {
 			Brisanje(R_shema, F_min);
 
 		}
-		else if (odabir>0 && odabir <=10) {
+		else if(odabir>0 && odabir <=10) {
 			vector<string> v=kanonski(F_min,odabir);
 			string v2=vracanje(v);
 			vector<string> v3 = kljucevi_valjda(v);
+			vector<string> v4 = pot_kljucevi(v3);
 
 		}
-		else if (odabir != R_shema.size()) { izvrsavanje = false; }
-
-
-
-
 		izvrsavanje = false;//izlazi iz petlje program gotov
 	}
 }

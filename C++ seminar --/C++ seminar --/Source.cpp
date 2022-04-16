@@ -1,6 +1,9 @@
 #include "Header.hpp"
 #include <algorithm>
 #include <iostream>
+#include <string>
+#include <vector>
+
 using namespace std;
 void Unos_Rsheme(vector<string>& R, vector<vector<string>>& F_min) {
 	string s;
@@ -109,4 +112,30 @@ vector<string> kljucevi_valjda(vector<string> v) {
 	}
 	cout << endl;
 	return vracam;
+}
+void get_substrings_aux(vector<string>& subs, vector<string> str, unsigned int cnt) {
+
+	if (cnt == str.size())
+		return;
+
+	int n = subs.size();
+	string c = str[cnt];
+	for (int i = 0; i < n; ++i) {
+		subs.push_back(subs[i] + c);
+	}
+	get_substrings_aux(subs, str, ++cnt);
+}
+vector<string> pot_kljucevi(vector<string> str) {
+	vector<string> subs(1);
+	int cnt = 0;
+	get_substrings_aux(subs, str, cnt);
+	subs.erase(subs.begin());
+	for (int i = 0; i < subs.size(); i++) {
+	}
+	cout << "Kandidati: ";
+	for (int i = 0; i < subs.size(); i++) {
+		cout << subs[i]<<" ";
+	}
+	return subs;
+
 }
