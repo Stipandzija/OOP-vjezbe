@@ -15,7 +15,18 @@ int main() {
 	bool izvrsavanje = true;
 	while (izvrsavanje == true) //program se izvrsava dok je true
 	{
-
+		int b;
+		for (int i = 0; i < R_shema.size(); i++) {
+			cout << i + 1 << ". " << "R= " << R_shema[i] << " , " << "Fmin= ";
+			for (int j = 0; j < F_min[i].size(); j++) {
+				cout << F_min[i][j] << " ";
+			}
+			cout << endl;
+			b = i;
+		}
+		cout << b + 2 << "." << " Brisanje relacijske sheme i FO" << endl;
+		cout << b + 3 << "." << " Unesi novu relacijsku shemu i FO" << endl;
+		cout << b + 4 << "." << " Kraj" << endl;
 
 		int R_size = R_shema.size();
 		int odabir; cout << "Unesi broj koi zelis odabrat: "; cin >> odabir;
@@ -42,6 +53,7 @@ int main() {
 			string v2=vracanje(v);
 			vector<string> v3 = kljucevi_valjda(v);
 			vector<string> v4 = pot_kljucevi(v3);
+			
 
 		}
 		izvrsavanje = false;//izlazi iz petlje program gotov

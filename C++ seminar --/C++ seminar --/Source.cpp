@@ -134,8 +134,7 @@ vector<string> pot_kljucevi(vector<string> str) {
 	}
 	cout << "Kandidati: ";
 	for (int i = 0; i < subs.size(); i++) {
-		cout << subs[i]<<" ";
+		cout << subs[i] << " ";
 	}
 	return subs;
-
 }

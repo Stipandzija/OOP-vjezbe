@@ -10,3 +10,4 @@ string vracanje(vector<string>);
 vector<string> kljucevi_valjda(vector<string>);
 vector<string> pot_kljucevi(vector<string>);
 void get_substrings_aux(vector<string>& subs, vector<string> str, unsigned int cnt);
+
