@@ -68,5 +68,25 @@ vector<string> kanonski(vector<vector<string>>& F_min, int odabir) {
 	for (auto i = 0; i < prazan.size(); i++) {
 		cout << prazan[i] << " ";
 	}
+	cout << endl;
 	return prazan;
+}
+string vracanje(vector<string>& v) {
+
+	string R;
+	for (string s : v) {
+		for (int i = 0; i < s.size(); i++) {
+			if (s[i] == '-' || (s[i] == '>')) {
+				continue;
+			}
+			else {
+				size_t found = R.find(s[i]);
+				if (found == std::string::npos)
+					R.push_back(s[i]);
+			}
+		}
+	}
+
+	cout <<"R od F je: " << R;
+	return R;
 }
