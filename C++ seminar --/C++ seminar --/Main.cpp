@@ -55,6 +55,7 @@ int main() {
 			vector<string> v4 = pot_kljucevi(v3);
 			
 
+// triba napisat funkciju koja iz v4 (to su kandidati) izvlaci sve moguce primarne kljuceve preko zadanih funkcionalnih ovisnosti(FO u kodu)
 		}
 		izvrsavanje = false;//izlazi iz petlje program gotov
 	}

@@ -137,4 +137,9 @@ vector<string> pot_kljucevi(vector<string> str) {
 		cout << subs[i] << " ";
 	}
 	return subs;
+
+	
+
 }
+
+
