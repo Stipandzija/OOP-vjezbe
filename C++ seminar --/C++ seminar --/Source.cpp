@@ -14,7 +14,7 @@ void Unos_Rsheme(vector<string>& R, vector<vector<string>>& F_min) {
 	R.push_back(s);
 	cout << "Koliko f-ovisnosti imate: "; int n; cin >> n;
 	for (int i = 0; i < n; i++) {
-		cout << "Unesi F-ovisnost";
+		cout << "Unesi F-ovisnost: ";
 		cin >> s2;
 		v.push_back(s2);
 	}
