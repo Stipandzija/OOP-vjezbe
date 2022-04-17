@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <algorithm>
 #include <string>
 #include "Header.hpp"
 using namespace std;
@@ -27,7 +28,7 @@ int main() {
 		cout << b + 2 << "." << " Brisanje relacijske sheme i FO" << endl;
 		cout << b + 3 << "." << " Unesi novu relacijsku shemu i FO" << endl;
 		cout << b + 4 << "." << " Kraj" << endl;
-
+		
 		int R_size = R_shema.size();
 		int odabir; cout << "Unesi broj koi zelis odabrat: "; cin >> odabir;
 		if (odabir == 13) {

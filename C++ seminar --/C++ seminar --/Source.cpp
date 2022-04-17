@@ -25,16 +25,28 @@ void Brisanje(vector<string>& R, vector<vector<string>>& F_min) {
 	R.erase(R.begin() + (x-1));
 	F_min.erase(F_min.begin() + (x-1));
 }
+bool funk(vector<string> v, string s) {
+	int i = 0;
+	for (string e : v) {
+	if (e == s)
+			i++;
+	}
+	if (i == 1)
+		return true;
+	else
+		return false;
+}
 vector<string> kanonski(vector<vector<string>>& F_min, int odabir) {
 	vector<string> v = F_min[odabir - 1];
 	vector<string> prazan;
-
+	vector<string> vec = kljucevi_valjda(v);
 
 	for (string s : v) {
 		bool x = true;
 		bool y = true;
 		string lijeva_strana;
 		string desni_char;
+		string kurac;
 		string zasebni_kanonski;
 		for (int i = 0; i < s.size(); i++) {
 			
@@ -51,10 +63,26 @@ vector<string> kanonski(vector<vector<string>>& F_min, int odabir) {
 			else if (x == false)
 			{
 				desni_char.push_back(s[i]);
-				zasebni_kanonski.append(lijeva_strana + "->" + desni_char);
-				prazan.push_back(zasebni_kanonski);
-				desni_char.clear();
-				zasebni_kanonski.clear();
+				kurac.push_back(s[i]);
+				int broj = i;
+				broj++;
+				if(broj<s.size())
+					kurac.push_back(s.at(broj));
+				if (funk(vec, kurac) == true) {
+						zasebni_kanonski.append(lijeva_strana + "->" + kurac);
+						prazan.push_back(zasebni_kanonski);
+						kurac.clear();
+						desni_char.clear();
+						zasebni_kanonski.clear();
+						i = i + 1;
+				}
+				else {
+					zasebni_kanonski.append(lijeva_strana + "->" + desni_char);
+					prazan.push_back(zasebni_kanonski);
+					desni_char.clear();
+					zasebni_kanonski.clear();
+					kurac.clear();
+				}
 			}
 			
 		
