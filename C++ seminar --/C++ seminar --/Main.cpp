@@ -44,9 +44,13 @@ int main() {
 		}
 		else if (odabir == 12) {
 			Unos_Rsheme(R_shema,F_min);
+			izvrsavanje = true;
+			continue;
 		}
 		else if (odabir == 11) {
 			Brisanje(R_shema, F_min);
+			izvrsavanje = true;
+			continue;
 
 		}
 		else if(odabir>0 && odabir <=10) {
@@ -58,6 +62,6 @@ int main() {
 
 // triba napisat funkciju koja iz v4 (to su kandidati) izvlaci sve moguce primarne kljuceve preko zadanih funkcionalnih ovisnosti(FO u kodu)
 		}
-		izvrsavanje = false;//izlazi iz petlje program gotov
+		
 	}
 }
