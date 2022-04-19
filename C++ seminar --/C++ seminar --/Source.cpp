@@ -267,7 +267,8 @@ bool rekurzivnaa(string s, vector<string> lijeva_s, vector<string> desna_s, stri
 		r.append(we);
 		return true;
 	}
-	else return false;
+	else
+		return false;
 }
 
 
@@ -286,10 +287,15 @@ void rjesenja(vector<string> kandidat, vector<string> lijeva_s, vector<string> d
 	}
 	for (int i = 0,j=0; i < desna_ss.size(); i++) {
 		sort(desna_ss[i].begin(), desna_ss[i].end());
-		if(desna_ss[i].length()==R_shema.length() && R_shema==desna_ss[i])
+		if (desna_ss[i].length() == R_shema.length() && R_shema == desna_ss[i])
 			cout << "Primanri kljuc: " << lijeva_ss[i] << "-" << desna_ss[i] << endl;
+		else {
+			cout << "Nema kljuceva" << endl;
+			return;
+		}
 	}
-	desna_ss.erase(std::unique(desna_ss.begin(), desna_ss.end()), desna_ss.end());
-	cout << "Uzimamo: " << desna_ss[0] << endl;
+	
+	cout << "Uzimamo: " << lijeva_ss[0]<< "-"<< desna_ss[0] << endl;
+	
 	cout << endl;
 }
