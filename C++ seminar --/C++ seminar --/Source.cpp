@@ -2,8 +2,8 @@
 #include <algorithm>
 #include <iostream>
 #include <string>
-#include <map>
-#include <set>
+#include<ctype.h>
+#include <cctype>
 #include <vector>
 
 using namespace std;
@@ -13,6 +13,15 @@ void Unos_Rsheme(vector<string>& R, vector<vector<string>>& F_min) {
 	vector<string> v;
 	cout << "Unesi string: ";
 	cin >> s;
+	for (auto e : s) {
+		if (!ispunct(e))
+			;
+		else
+		{
+			cout << "greska u unosu" << endl;
+			return;
+		}
+	}
 	R.push_back(s);
 	cout << "Koliko f-ovisnosti imate: "; int n; cin >> n;
 	for (int i = 0; i < n; i++) {
@@ -280,5 +289,7 @@ void rjesenja(vector<string> kandidat, vector<string> lijeva_s, vector<string> d
 		if(desna_ss[i].length()==R_shema.length() && R_shema==desna_ss[i])
 			cout << "Primanri kljuc: " << lijeva_ss[i] << "-" << desna_ss[i] << endl;
 	}
+	desna_ss.erase(std::unique(desna_ss.begin(), desna_ss.end()), desna_ss.end());
+	cout << "Uzimamo: " << desna_ss[0] << endl;
 	cout << endl;
 }

@@ -2,8 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <string>
-#include <map>
-#include <set>
+#include<ctype.h>
 #include "Header.hpp"
 using namespace std;
 
@@ -32,17 +31,18 @@ int main() {
 		cout << b + 4 << "." << " Kraj" << endl;
 		
 		int odabir; cout << "Unesi broj koi zelis odabrat: "; cin >> odabir;
-		if (odabir == (R_shema.size() + 3)) {
+		if (odabir > (R_shema.size() + 3)) {
+			izvrsavanje = false;
+			cout << "Greska u unosu" << endl;
+			continue;
+		}
+		else if (odabir == (R_shema.size() + 3)) {
 			izvrsavanje = false;
 
 			cout << "Kraj programa" << endl;
 			continue;
 		}
-		else if (odabir > (R_shema.size() + 3)) {
-			izvrsavanje = false;
-			cout << "Greska u unosu" << endl;
-			continue;
-		}
+	
 		else if (odabir == (R_shema.size() + 2)) {
 			Unos_Rsheme(R_shema, F_min);
 			izvrsavanje = true;
@@ -59,8 +59,6 @@ int main() {
 			vector<string> v = kanonski(F_min, odabir,sss);
 			string v2 = vracanje(v);
 			vector<string> v3 = kljucevi_valjda(v);
-			multimap<string, string> maper;
-			
 			vector<string> svi_desni;
 			vector<string> svi_lijevi;//sve sa ljeve strane bez ponavljanja
 
@@ -68,7 +66,6 @@ int main() {
 			for (const auto& val : F_min[odabir - 1]) {// v je zamjenjiv
 				vector<string> split;
 				tokenize(val, "->", split);
-				
 					svi_lijevi.push_back(split[0]);
 					svi_desni.push_back(split[1]);
 				
